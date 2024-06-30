@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 public class MapearOpcion {
     public static String[] mapeaOpcion(int opcion) {
+        /*Creamos un hashmap con las claves de las monedas para hacer la conversión X -> Y */
         HashMap<Integer, String[]> miHashMap = new HashMap<>();
 
         String[] cambio1 = { "USD", "ARS" };

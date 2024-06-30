@@ -24,13 +24,16 @@ public class Main {
                     "7) Salir\n" +
                     "**************************************");
             opcion = userIn.nextInt();
+
             if (opcion > 0 && opcion < 7) {
                 System.out.println("Ingrese la cantidad que deseé convertir:");
                 double cantidadConvertir = userIn.nextFloat();
 
+                // Obtenemos el json de respuesta de la API
                 String jsonResponse = ConsultarCambioMoneda.consultaMoneda(opcion);
+                // Convertimos el json a un record para trabajar con los datos
                 MonedaRecord miMoneda = gson.fromJson(jsonResponse, MonedaRecord.class);
-
+                // Obtenemos el valor de la moneda a convertir
                 double monedaCambio = (miMoneda.conversion_rates().get(MapearOpcion.mapeaOpcion(opcion)[1]));
 
                 double totalCambio = cantidadConvertir * monedaCambio;
